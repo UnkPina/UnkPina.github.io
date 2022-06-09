@@ -1,0 +1,237 @@
+
+/*  jedro */
+body {
+    font-family: "Gill Sans", sans-serif;
+    font-size: 20px;
+
+}
+
+/*  odmaknjenost jedra */
+.main{
+     margin-left: 20%; /* Same as the width of the sidenav */
+    padding-left: 2%;
+    padding-top:1%
+}
+
+/*  navigacija */
+.sidenav {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #312450;
+  overflow-x: hidden;   /*  če pomanjšamo višino strani naredi drsni trak (scroll bar) */
+}
+
+/*  logo v navigaaciji */
+.krog {
+        padding: 15px;
+        border: 2px solid #000;
+        border-radius: 50%;
+        width: 30%
+}
+
+/*  besedilno navigacije */
+.sidenav a {
+  padding: 25px 0px 0px 50px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #F0FFFF;
+  display: block;
+  line-height: 4em;
+}
+
+/*  okvirček okoli besedila v navigaciji */
+.sidenav div {
+    display: inline;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 25px;
+}
+
+/*  ko kazalec zapeljemo na kvadratek se spremeni (za besedilo) */
+.sidenav a:hover {
+  color: #A7C7E7;
+}
+
+
+/*  ko kazalec zapeljemo na kvadratek se spremeni (za okvirček) */
+.sidenav div:hover {
+    opacity:0.5;
+}
+
+/*  besedilo na levi strani */
+.leftbox {
+    width:80%;
+}
+
+/*  besedilo na desni strani */
+.rightbox {
+    width:50%;
+    padding-left: 50%;
+}
+
+/*  postavitev slik */
+.image_center{
+  display: block;
+  padding: 30px 0;
+  margin-left: auto;
+  margin-right: 35%;
+  width: 50%;
+}
+
+/*  okvir pri matematičnih formulah */
+.formule {
+    display: inline;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-family: "My Fancy Math Font";
+}
+
+
+/*  hiperpovezave */
+.links {
+  text-decoration: none;
+  color: #18272F;
+  font-weight: 700;
+  position: relative;
+}
+
+/*  podčrtavanje linkov (nanaša se na razred "links") */
+.links::before {
+  content: '';
+  background-color:#b393d3;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 2px;
+  z-index: -1;
+  transition: all .3s ease-in-out;
+}
+
+/*  ko je kazalec na hiperpovezavi */
+.links:hover::before {
+  bottom: 0;
+  height: 100%;
+}
+
+/*  noga strani (na straneh, kjer je drsnik se pojavi na dnu strani)*/
+.footer1{
+    position:relative;
+    text-align: center;
+    width: 77%; /* size menu je velik 20% ne sme preseči 100% */
+    bottom: 0;
+    font-size: 15px;
+    padding-left: 160px;
+}
+
+/*  noga strani (če ni drsnika ostaja fiksen) */
+.footer2{
+    position:absolute;
+    text-align: center;
+    width: 77%; /* size menu je velik 20% ne sme preseči 100% */
+    bottom: 0;
+    font-size: 15px;
+}
+
+/*  slika na strani zaključek */
+.slika_zakljucek {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:20%;
+}
+
+/*  slika na strani domov */
+.slika_logo_glavna_stran {
+    float:right;
+    padding-right:1%;
+    padding-top:1%;
+    width:40%;
+}
+
+
+/*  glavni naslov */
+.glavni_naslov {
+    font-size: 40px;
+    padding: 7% 0 2% 2%;
+    align:right;
+    color: #382454;
+}
+
+/*  podnaslov */
+.podnaslov {
+    font-weight: 600;
+    padding-left: 2%;
+    color: #382454;
+
+}
+
+/*  če je okno veliko 1050 px - 1670px (če okno zmanjšamo) */
+@media screen and (min-width: 1050px) and (max-width: 1670px) {
+  .sidenav {
+    width: 25%;
+  }
+  .sidenav a {
+  padding: 30px 0px 0px 25px;
+  font-size: 18px;
+  }
+.sidenav p {
+    padding: 25px 0px 0px 10px;
+}
+
+.main {
+  margin-left: 25%;
+  font-size: 20px;
+  padding: 0px 20px;
+}
+
+.footer2{
+    width: 73%;
+}
+
+.footer1{
+    width: 65%;
+}
+
+.glavni_naslov {
+    font-size: 30px;
+}
+
+}
+
+@media screen and (max-width: 1050px) {
+  .sidenav {
+    width: 25%
+  }
+
+  .sidenav a {
+      padding: 50px 0px 0px 25px;
+      font-size: 14px;
+  }
+
+.sidenav p {
+    padding: 15px 0px 0px 10px;
+}
+
+.main {
+  margin-left: 25%; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 15px;
+}
+
+.footer2{
+    width: 71%;
+}
+
+.footer1{
+    width: 60%;
+}
+
+.glavni_naslov {
+    font-size: 20px;
+}
+}

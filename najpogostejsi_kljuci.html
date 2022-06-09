@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Moderna kriptografija</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<body>
+
+		<div class="sidenav">
+
+			<a href="index.html">
+				<img src="slike/logo.svg" class="krog">
+			</a>
+
+			<a href="index.html">
+				<div class="obroba">Domov</div>
+			</a>
+			<a href="podrocja.html">
+				<div class="obroba">Področja kriptografije</div>
+			</a>
+			<a href="uporaba.html">
+				<div class="obroba">Današnja uporaba</div>
+			</a>
+			<a href="najpogostejsi_kljuci.html">
+				<div class="obroba">Najpogostejši ključi</div>
+			</a>
+			<a href="zakljucek.html">
+				<div class="obroba">Zaključek</div>
+			</a>
+			<a href="viri.html">
+				<div class="obroba">Viri</div>
+			</a>
+
+		</div>
+
+		<div class="main">
+
+			<section class="leftbox">
+
+				<h1 class="podnaslov">NAJPOGOSTEJŠI KLJUČI</h1>
+
+				<ul>
+					<li>AES - Advanced Encryption Standard</li>
+					<li>Triple DES</li>
+					<li>Twofish</li>
+					<li>Blowish</li>
+					<li>SHA-256</li>
+					<li><a class="links" href="#RSA">RSA - Rivest–Shamir-Adleman </a></li>
+				</ul>
+				<img src="slike/rsa.jpg" alt="znanstveniki: Rivest–Shamir-Adleman" width=40%/>
+
+				<p>
+					AES, Twofish in Blowish spadajo med algoritme simetričnega ključa. Simetrična kriptografija je danes
+					manj uporabljena, saj je nepraktična za uporabo preko interneta. Izmenjava ključev je precej zapletena
+					in ni tako varna. Zato je danes bolj v uporabi asimetrična kriptografija, ki uporablja dva različna
+					ključa.
+				</p>
+				<img src="slike/password.jpg" alt="Geslo" width=40%/>
+				<h2 class="podnaslov" id="RSA"> RSA - ALGORITEM </h2>
+
+				<p>
+					RSA je računalniški algoritem javnega ključa. To pomeni, da imamo javni ključ za šifriranje in privatni ključ za dešifriranje.
+					Največja prednost tega algoritma je njegova učinkovitost in varnost, saj bi hackerju vzelo ogromno časa za dešifriranje,
+					saj je algoritem narejen tako, da ga je lahko zakodirati in zelo težko razvozlati, če nimaš nečesa kar imenujemo »trapdoor«.
+					Pa si na primeru poglejmo zakaj.
+				</p>
+
+				<h3 class="podnaslov">Primer</h3>
+
+				<p>
+					Recimo da imamo osebo Bob, ki želi postali sporočilo Ani, med njima pa sporočila prestrega zlobni Janez.
+					Bob mora torej zakodirati svoje sporočilo, ga poslati Ani, ta ga more dešifrirati in svoje sporočilo nazaj zakodirati.
+				</p>
+
+				<p>
+					Ena od metod, ki jo uporablja RSA algoritem je Evklidov algoritem s praštevili, zato si mora Ana najprej izbrati dve praštevili,
+					imenujmo ju p in q.
+				</p>
+
+				<p class="formule">
+					p = 2
+				</p>
+
+				<br/> <br/> <br/>
+
+				<p class="formule">
+					q = 7
+				</p>
+
+				<p>
+					Ti dve števili zmnoži. Temu številu recimo n – predstavlja njen javni ključ.
+				</p>
+
+				<p class="formule">
+					N = p * q = 14
+				</p>
+
+				<p>
+					Nato Ana izbere še število k, ki v resnici ustreza določenim posebnim kriterijem, ki so precej kompleksni. V našem primeru bo
+				</p>
+
+				<p class="formule">
+					k = 11
+				</p>
+
+				<p>
+					Bom ima svoje sporočilo, ki ga želi zakodirati, recimo, da je to številka 4. Označimo ga z M, kot "message".
+				</p>
+
+				<p class="formule">
+					M = 4
+				</p>
+
+				<p>
+					S pomočjo podatkov od Ane Bob sedaj zakodira svoje sporočilo s formulo:
+				</p>
+
+				<p class="formule">
+					𝑀^𝑘 = 𝑐 𝑚𝑜𝑑 𝑛
+				</p>
+
+				<br/> <br/> <br/>
+
+				<p class="formule">
+					4^11 = 𝑐 𝑚𝑜𝑑 14
+				</p>
+
+				<br/> <br/> <br/>
+
+				<p class="formule">
+					c = 2
+				</p>
+
+				<p>
+					Izračuna c in ga pošlje Ani. Nato Ana s pomočjo tega izračuna e – kot encryption.
+				</p>
+
+				<p>
+					Prej vpeljemo nekaj, čemur rečemo Phi – funkcija. Postopek je pogruntal Euler in je izjemo težak, razen če poznaš tole metodo – v našem primeru bo to »trapdoor«.
+					Formule ne bomo na dolgo razlagali, povejmo samo to, da velja:
+				</p>
+
+				<p class="formule">
+					Φ(N) = (p - 1) * (q - 1) = (2 - 1) * (7 - 1) = 6
+				</p>
+
+				<p>
+					p – 1 je število številk, ki nima nobenega skupnega faktorja s številom p, ker je p praštevilo je formula enostavna, odšteti moramo samo 1, saj je edino število,
+					ki ima skupni faktor s tem številom ravno to število, in 1, vendar 1 ne štejemo, saj je skupni faktor vsem številom.
+					Če poznamo p in q, lahko z lahkoto izračunamo Phi funkcijo, kar pa Ana seveda pozna, saj to sestavlja njen zasebni ključ.
+				</p>
+
+				<p><h4 class="podnaslov">Še nekaj o Pfi - funkciji</h4>
+
+				Primer si ogledujemo z zelo majhnimi številkami za lažje razumevanje.
+				V realnosti so te številke več sto mest dolge. Zakaj?
+				Noben računalnik na svetu nima problema z množenjem več sto, celo tisoč števk dolgih številk, vzame mu manj kot sekundo.
+				Problem se pojavi pri prafaktorizaciji in iskanju Phi - funcije. Brez da poznaš vrednosti p in q je postopek praktično nemogoč.
+				Računalnik do dolžine 60 za izračun Phi - funcije porabi približno sekundo. Vsaka dodatna števka postopek eksponentno podaljšuje in tako
+				pri številkah dolgih nekaj sto števk postopek traja že več stoletij.
+				</p>
+
+				<p>
+					Sedaj lahko izračunamo e.
+				</p>
+
+				<p class="formule">
+					k ∗ e 𝑚𝑜𝑑 Φ(𝑁) = 1
+				</p>
+
+				<br/> <br/> <br/>
+
+				<p class="formule">
+					11 ∗ e 𝑚𝑜𝑑 6 = 1
+				</p>
+
+				<br/> <br/> <br/>
+
+				<p class="formule">
+					e = 5
+				</p>
+
+				<br/> <br/> <br/>
+
+				<p>
+					S pomočjo izračunanega e-ja in c-ja, ki ga je dobila od Boba lahko sedaj dešifrira sporočilo:
+				</p>
+
+				<p class="formule">
+					c^e  mod n = M
+				</p>
+
+				<br/> <br/> <br/>
+
+				<p class="formule">
+					2^5  mod 14 = 4
+				</p>
+
+				<br/> <br/> <br/>
+
+				<p class="formule">
+					M = 4
+				</p>
+
+				<br/> <br/> <br/>
+
+			</section>
+
+			<footer class="footer1" >
+				<p id="cr">Copyright © 2022 Pina Unk</p>
+			</footer>
+		</div>
+	</body>
+</html>
